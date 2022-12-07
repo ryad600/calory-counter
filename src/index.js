@@ -8,7 +8,7 @@ const btnStyle = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 r
 const containerStyle = "container mx-auto my-8 max-w-md";
 const inputContainerStyle = "flex items-center mt-4";
 const inputStyle = "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500";
-const mealTableStyle = "mt-4 text-left";
+const mealTableStyle = "mt-4 text-left px-[100%]";
 
 const MSGS = {
   ADD_MEAL: "ADD_MEAL",
@@ -31,8 +31,7 @@ function view(dispatch, model) {
           td({},
             button({
               className: btnStyle,
-              onclick: () => dispatch(MSGS.DELETE_MEAL, { index }),
-            }, "Delete")
+              onclick: () => dispatch(MSGS.DELETE_MEAL, { index }),}, "Delete")
           ),
         ]);
       }),
@@ -42,7 +41,7 @@ function view(dispatch, model) {
 }
 
 function update(msg, model) {
-  switch (msg.type) {
+  switch (msg) {
     case MSGS.ADD_MEAL:
         const mealNameInput = document.getElementById("meal-name");
         const mealCaloriesInput = document.getElementById("meal-calories");
